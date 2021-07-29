@@ -4,6 +4,8 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MatDialog } from '@angular/material/dialog';
 
+import { MovieCardComponent } from './movie-card/movie-card.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,5 +26,11 @@ openUserRegistrationDialog(): void {
   // Directs to login modal
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {});
+  }
+
+  openMoviesDialog(): void {
+    this.dialog.open(MovieCardComponent, {
+      width: '500px'
+    });
   }
 }
