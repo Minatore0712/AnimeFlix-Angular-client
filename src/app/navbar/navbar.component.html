@@ -1,0 +1,15 @@
+<mat-toolbar style="position: sticky; width: 100%; background-color: #342e75; margin-bottom: 100px;">
+    <span>
+        <button mat-button routerLink="/movies" style="font-size: 20px; color: white;">
+            AnimeFlix
+        </button>
+    </span>
+    <span style="flex: 1 1 auto;">
+        <button mat-button (click)="logoutUser()" routerLink="/" style="float: right; font-size: 16px; color: white;">
+            Sign Out
+        </button>
+        <button mat-button routerLink="/profile" style="float: right; font-size: 16px; color: white;">
+            Profile
+        </button>
+    </span>
+</mat-toolbar>

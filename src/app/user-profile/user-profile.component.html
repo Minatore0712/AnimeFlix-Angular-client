@@ -1,0 +1,56 @@
+<div>
+    <app-navbar></app-navbar>
+    <div style="display: flex; justify-content: center;">
+        <mat-card style="margin-top: 1rem; padding: 1rem;">
+            <mat-card-header style="display: block;">
+                <mat-card-title style="text-align: center;">Profile</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content style="padding: 1rem;">
+                <mat-card-subtitle>
+                    Username: {{user.Username}}
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    Email: {{user.Email}}
+                </mat-card-subtitle>
+                <mat-card-subtitle>
+                    Date of Birth: {{ user.Birthday | date: 'dd/MM/yyyy'}}
+                </mat-card-subtitle>
+            </mat-card-content>
+
+            <mat-card-actions style="padding: 1rem;">
+                <div>
+                    <button mat-raised-button (click)=" openUserProfileEditDialog()" color="primary"
+                        style="margin-bottom: 0.5rem;">
+                        Update profile
+                    </button>
+                </div>
+                <div>
+                    <button mat-raised-button (click)="openUserPasswordEditDialog()" color="primary"
+                        style="margin-bottom: 0.5rem;">
+                        Update password
+                    </button>
+                </div>
+                <div>
+                    <button mat-raised-button (click)="openUserProfileDeleteDialog()" color="basic">
+                        Delete account
+                    </button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <h2 style="text-align: center; margin: 1rem;">Favourite Movies</h2>
+    <div style="display: flex; flex-flow: row wrap; justify-content: space-evenly;">
+        <mat-card *ngFor="let movie of favouriteMovies" style="flex: 1 1 auto; margin: 1rem 0.5rem; max-width: 182px;">
+            <mat-card-header>
+                <mat-card-title style="height: 40px;">{{movie.Title}}</mat-card-title>
+                <mat-icon (click)="deleteFavourite(movie._id)" style="position: absolute; top: 14px; right: 14px;">
+                    close
+                </mat-icon>
+                <mat-card-subtitle>{{movie.ReleaseYear | date:'yyyy'}}</mat-card-subtitle>
+            </mat-card-header>
+            <img src={{movie.ImagePath}} alt={{movie.Title}} style="margin: 0 auto;" />
+        </mat-card>
+    </div>
+</div>
