@@ -12,9 +12,19 @@ const apiUrl = 'https://anime-flix-db.herokuapp.com/';
   providedIn: 'root'
 })
 export class UserRegistrationService {
+
+      /**
+   *
+   * @param http
+   * @param router
+   */
   constructor(private http: HttpClient) { }
 
-  // registration endpoint
+      /**
+   * API call to register new user account
+   * @param userDetails
+   * @returns
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -34,6 +44,11 @@ export class UserRegistrationService {
     return throwError('Something bad happened; please try again later');
   }
 }
+
+/**
+ * API call to user login endpoint
+ * @param userDetails - login details for existing user
+ */
 
 // login endpoint
 @Injectable({
@@ -61,6 +76,10 @@ export class UserLoginService {
   }
 }
 
+/**
+ * API call to fetch user account details
+ * @param user - userID
+ */
 // get user endpoint
 @Injectable({
   providedIn: 'root'
@@ -99,6 +118,10 @@ export class GetUserService {
   }
 }
 
+/**
+ * API call to update user details
+ * @param userDetails
+ */
 // edit user 
 @Injectable({
   providedIn: 'root'
@@ -135,6 +158,10 @@ export class EditUserService {
   }
 }
 
+/**
+ * API call to update user password
+ * @param userPassword
+ */
 // edit password
 @Injectable({
   providedIn: 'root'

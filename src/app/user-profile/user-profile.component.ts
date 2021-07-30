@@ -36,7 +36,11 @@ export class UserProfileComponent implements OnInit {
     this.getMovies();
   }
 
- 
+   /**
+   * Function fetching all movie data to populate user's FavouriteMovies array
+   * @returns {array} movies - array of movie objects
+   * calls getUser function
+   */
   getMovies(): void {
     this.fetchApiData2.getAllMovies().subscribe((response: any) => {
       this.movies = response;
@@ -45,7 +49,12 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
-  
+    /**
+   * Function fetching user account details from database to populate user profile information
+   * Matches user's FavouriteMovies array of movie IDs with movie IDs in movies array, and populates favouriteMovies array with relevant movie data to display in browser
+   * @returns user - user account details
+   * @returns favouriteMovies - array of movie objects of user's favourite movies
+   */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((response: any) => {
       this.user = response;
@@ -56,7 +65,11 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Function deleting movie ID from user account on database
+   * Calls getUser function to update favouriteMovies array displayed in browser
+   * @params id - movie ID
+   */
   deleteFavourite(id: string): void {
     this.fetchApiData3.deleteFavouriteMovie(id).subscribe((response: any) => {
       console.log(response);
@@ -65,6 +78,9 @@ export class UserProfileComponent implements OnInit {
   }
 
 
+  /**
+   * Function opening dialog to update user account details
+   */
   openUserProfileEditDialog(): void {
     this.dialog.open(UserProfileEditComponent, {
       width: '280px',
@@ -74,14 +90,18 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
- 
+   /**
+   * Function opening dialog to update user password
+   */
   openUserPasswordEditDialog(): void {
     this.dialog.open(UserPasswordEditComponent, {
       width: '280px',
     });
   }
 
- 
+ /**
+   * Function opening dialog to delete user account
+   */
   openUserProfileDeleteDialog(): void {
     this.dialog.open(UserProfileDeleteComponent, {
       width: '350px',

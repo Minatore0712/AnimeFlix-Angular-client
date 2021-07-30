@@ -20,7 +20,9 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  
+    /**
+   * Function sending user registration form input to database to create new user account
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(response => {
       this.dialogRef.close();  
