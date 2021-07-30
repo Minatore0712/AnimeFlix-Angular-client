@@ -21,7 +21,9 @@ export class UserProfileDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  /**
+   * Function to delete user account from database
+   */
   deleteUser(): void {
     this.fetchApiData.deleteUser().subscribe(() => {
       this.dialogRef.close();
@@ -37,7 +39,9 @@ export class UserProfileDeleteComponent implements OnInit {
     });
   }
 
-
+  /**
+   * Function closing dialog without deleting user account
+   */
   cancel(): void {
     this.dialogRef.close();
   }

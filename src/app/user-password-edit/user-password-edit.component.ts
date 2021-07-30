@@ -20,7 +20,10 @@ export class UserPasswordEditComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  /**
+   * Function to update user password on database
+   */
   editPassword(): void {
     this.fetchApiData.editUserPassword(this.userData).subscribe(response => {
       console.log(response);

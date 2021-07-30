@@ -22,7 +22,9 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void { }
 
- 
+   /**
+   * Function sending user login form input to database to authenticate user credentials
+   */
   loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(response => {
       this.dialogRef.close();
