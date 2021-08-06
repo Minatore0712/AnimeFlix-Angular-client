@@ -26,6 +26,7 @@ export class UserRegistrationService {
    * @returns
    */
   public userRegistration(userDetails: any): Observable<any> {
+    console.log("user registration:")
     console.log(userDetails);
     return this.http
       .post(apiUrl + 'users', userDetails)
@@ -58,7 +59,7 @@ export class UserLoginService {
   constructor(private http: HttpClient) { }
 
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    console.log("userDetails:",userDetails);
     return this.http
       .post(apiUrl + 'login', userDetails)
       .pipe(catchError(this.handleError));
@@ -208,6 +209,9 @@ export class AddFavouriteMovieService {
   public addFavouriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
+    console.log("user,", user);
+    console.log("token,",token);
+    console.log("id,", id);
     return this.http
       .post(`${apiUrl}users/${user}/movies/${id}`, id, {
         headers: new HttpHeaders({
