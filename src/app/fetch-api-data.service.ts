@@ -159,46 +159,6 @@ export class EditUserService {
   }
 }
 
-/**
- * API call to update user password
- * @param userPassword
- */
-// edit password
-@Injectable({
-  providedIn: 'root'
-})
-export class EditUserPasswordService {
-  constructor(private http: HttpClient) { }
-
-  public editUserPassword(userPassword: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const user = localStorage.getItem('user');
-    return this.http
-      .put(`${apiUrl}users/${user}/password`, userPassword, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        })
-      })
-      .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  private extractResponseData(res: Response | {}): Response | {} {
-    const body = res;
-    return body || {};
-  }
-
-  private handleError(error: HttpErrorResponse): any {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred: ', error.error.message);
-    } else {
-      console.error(
-        `Error status code ${error.status}, ` + `Error body is ${error.error}`
-      );
-    }
-    return throwError('Something bad happened; please try again later');
-  }
-}
-
 //add fav movie
 @Injectable({
   providedIn: 'root'

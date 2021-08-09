@@ -9,7 +9,6 @@ import {
   DeleteUserService,
 } from '../fetch-api-data.service';
 import { UserProfileEditComponent } from '../user-profile-edit/user-profile-edit.component';
-import { UserPasswordEditComponent } from '../user-password-edit/user-password-edit.component';
 import { UserProfileDeleteComponent } from '../user-profile-delete/user-profile-delete.component';
 
 @Component({
@@ -87,15 +86,6 @@ export class UserProfileComponent implements OnInit {
       data: {
         onSuccess: () => this.getUser(),
       }
-    });
-  }
-
-   /**
-   * Function opening dialog to update user password
-   */
-  openUserPasswordEditDialog(): void {
-    this.dialog.open(UserPasswordEditComponent, {
-      width: '280px',
     });
   }
 

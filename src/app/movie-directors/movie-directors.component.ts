@@ -11,11 +11,11 @@ export class MovieDirectorsComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
-      Director: Array<{
+      Director:{
         Name: string,
         Bio: string,
         Birth: string,
-      }>
+      }
     }
   ) { }
 

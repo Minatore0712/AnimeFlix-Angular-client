@@ -10,7 +10,7 @@ import { GetUserService, EditUserService } from '../fetch-api-data.service';
   styleUrls: ['./user-profile-edit.component.scss']
 })
 export class UserProfileEditComponent implements OnInit {
-  @Input() userData = { Username: '', Email: '', Birthday: '' };
+  @Input() userData = { Username: '', Password:'', Email: '', Birthday: '' };
   user: any = {};
 
   constructor(

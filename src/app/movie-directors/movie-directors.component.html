@@ -1,12 +1,11 @@
 <div style="display: flex; flex-flow: column wrap;">
-    <mat-card *ngFor="let Director of data.Director;">
+    <mat-card>
         <mat-card-header>
-            <mat-card-title>{{Director.Name}}</mat-card-title>
+            <mat-card-title>{{data.Director.Name}}</mat-card-title>
             <mat-card-subtitle>
-                {{Director.Birth | date: 'yyyy'}}
-                <p>TEST</p>
+                {{data.Director.Birth | date: 'yyyy'}}
             </mat-card-subtitle>
         </mat-card-header>
-        <p>{{Director.Bio}}</p>
+        <p>{{data.Director.Bio}}</p>
     </mat-card>
 </div>
