@@ -26,8 +26,6 @@ export class UserRegistrationService {
    * @returns
    */
   public userRegistration(userDetails: any): Observable<any> {
-    console.log("user registration:")
-    console.log(userDetails);
     return this.http
       .post(apiUrl + 'users', userDetails)
       .pipe(catchError(this.handleError));
@@ -59,7 +57,6 @@ export class UserLoginService {
   constructor(private http: HttpClient) { }
 
   public userLogin(userDetails: any): Observable<any> {
-    console.log("userDetails:",userDetails);
     return this.http
       .post(apiUrl + 'login', userDetails)
       .pipe(catchError(this.handleError));
@@ -101,9 +98,8 @@ export class GetUserService {
   }
   
   // non-typed response extraction
-  private extractResponseData(res: Response | {}): Response | {} {
+  private extractResponseData(res: Response | {}): any {
     const body = res;
-    console.log(body);
     return body || {};
   }
 
@@ -169,9 +165,6 @@ export class AddFavouriteMovieService {
   public addFavouriteMovie(id: string): Observable<any> {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-    console.log("user,", user);
-    console.log("token,",token);
-    console.log("id,", id);
     return this.http
       .post(`${apiUrl}users/${user}/movies/${id}`, id, {
         headers: new HttpHeaders({
@@ -209,7 +202,7 @@ export class DeleteFavouriteMovieService {
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     return this.http
-      .put(`${apiUrl}users/${user}/movies/${id}`, id, {
+      .delete(`${apiUrl}users/${user}/movies/${id}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         })
@@ -289,8 +282,7 @@ export class GetAllMoviesService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   // non-typed response extraction
-  private extractResponseData(res: Response | {}): Response | {} {
-    console.log(res);
+  private extractResponseData(res: Response | {}): any {
     const body = res;
     return body || {};
   }

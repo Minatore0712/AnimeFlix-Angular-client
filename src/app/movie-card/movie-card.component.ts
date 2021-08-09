@@ -35,6 +35,10 @@ export class MovieCardComponent implements OnInit {
     this.getFavouriteMovies();
   }
 
+  isFavo(movieId: string): boolean {
+    return this.favouriteMovies?.includes(movieId);
+  }
+
     /**
    * Function fetching all movie data from database
    * @returns movies - array of movie objects
@@ -54,7 +58,7 @@ export class MovieCardComponent implements OnInit {
     const user = localStorage.getItem('user');
     if (user) {
       this.fetchApiData2.getUser().subscribe((response: any) => {
-        this.favouriteMovies = response.FavouriteMovies;
+        this.favouriteMovies = response.FavoriteMovies;
         return this.favouriteMovies;
       });
     }
@@ -66,7 +70,6 @@ export class MovieCardComponent implements OnInit {
    */
   addFavourite(id: string): void {
     this.fetchApiData3.addFavouriteMovie(id).subscribe((response: any) => {
-      console.log(response);
       this.getFavouriteMovies();
     });
   }
@@ -77,7 +80,6 @@ export class MovieCardComponent implements OnInit {
    */
   deleteFavourite(id: string): void {
     this.fetchApiData4.deleteFavouriteMovie(id).subscribe((response: any) => {
-      console.log(response);
       this.getFavouriteMovies();
     });
   }
