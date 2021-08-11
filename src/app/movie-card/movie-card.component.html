@@ -2,7 +2,7 @@
     <app-navbar></app-navbar>
     <div style="display: flex; flex-flow: row wrap; ">
         <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto; margin: 1rem 0.5rem; max-width: 214px; border-radius: 10px;">
-            <img src={{movie.ImagePath}} alt={{movie.Title}} style="width: 100%; padding-bottom: 20px;" />
+            <img src={{movie.ImagePath}} alt={{movie.Title}} style="width: 100%; padding-bottom: 20px; height: 300px;" />
             <mat-card-header>                
                 <mat-card-title style="height: 40px;">{{movie.Title}}</mat-card-title>
                 <ng-container *ngIf="isFavo(movie._id); then selected; else unselected">
