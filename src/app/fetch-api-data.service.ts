@@ -249,6 +249,8 @@ export class DeleteUserService {
 
   private extractResponseData(res: Response | {}): Response | {} {
     const body = res;
+    
+    console.log("DeleteUserService.extractResponseData", res);
     return body || {};
   }
 
@@ -284,6 +286,7 @@ export class GetAllMoviesService {
   // non-typed response extraction
   private extractResponseData(res: Response | {}): any {
     const body = res;
+    console.log("GetAllMoviesService.extractResponseData", res);
     return body || {};
   }
 
@@ -319,6 +322,8 @@ export class GetMovieService {
 
   private extractResponseData(res: Response | {}): Response | {} {
     const body = res;
+    
+    console.log("GetMovieService.extractResponseData", res);
     return body || {};
   }
 
@@ -354,6 +359,8 @@ export class GetDirectorsService {
 
   private extractResponseData(res: Response | {}): Response | {} {
     const body = res;
+    
+    console.log("GetDirectorsService.extractResponseData", res);
     return body || {};
   }
 
@@ -389,6 +396,8 @@ export class GetGenreService {
 
   private extractResponseData(res: Response | {}): Response | {} {
     const body = res;
+    
+    console.log("GetGenreService.extractResponseData", res);
     return body || {};
   }
 
